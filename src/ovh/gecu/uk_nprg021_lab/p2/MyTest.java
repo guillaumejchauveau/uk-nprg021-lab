@@ -1,4 +1,4 @@
-package ovh.gecu.nprg021_lab.p2;
+package ovh.gecu.uk_nprg021_lab.p2;
 
 @TesterInfo(createdBy = "Me", lastModified = "Aujourd'hui", priority = Priority.LOW)
 public class MyTest {

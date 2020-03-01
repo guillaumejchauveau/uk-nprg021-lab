@@ -1,4 +1,4 @@
-package ovh.gecu.nprg021_lab.p1;
+package ovh.gecu.uk_nprg021_lab.p1;
 
 class MyPlugin implements MyPluginInterface {
   @Override

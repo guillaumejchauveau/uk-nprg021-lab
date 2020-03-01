@@ -1,4 +1,4 @@
-package ovh.gecu.nprg021_lab.p2;
+package ovh.gecu.uk_nprg021_lab.p2;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
