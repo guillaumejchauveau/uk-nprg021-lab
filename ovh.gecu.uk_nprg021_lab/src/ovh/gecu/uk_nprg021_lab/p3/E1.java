@@ -1,25 +1,23 @@
-package ovh.gecu.uk_nprg021_lab.p1;
+package ovh.gecu.uk_nprg021_lab.p3;
+
+import ovh.gecu.uk_nprg021_lab.p1.TextProcessor;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.ServiceLoader;
 
-public class E2 {
+public class E1 {
   public static void test(String[] args) throws Exception {
-    if (args.length != 2) {
-      throw new RuntimeException("One argument expected");
-    }
-    var reader = new BufferedReader(new FileReader(args[1]));
-    String line;
     var processors = new ArrayList<TextProcessor>();
-    while ((line = reader.readLine()) != null) {
-      processors.add(E1.loadPlugins(TextProcessor.class, line).get(0));
+    for (var plugin : ServiceLoader.load(TextProcessor.class)) {
+      processors.add(plugin);
     }
     var inputReader = new BufferedReader(new InputStreamReader(System.in));
     StringBuilder input = new StringBuilder();
+    String line;
     while ((line = inputReader.readLine()) != null) {
-      input.append(line);
+      input.append(line).append('\n');
     }
     String output = input.toString();
     for (var processor : processors) {
