@@ -1,4 +1,4 @@
-package ovh.gecu.uk_nprg021_lab.jdom_assignement;
+package ovh.gecu.uk_nprg021_lab.jdom_assignment;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -37,7 +37,7 @@ public class LinkReader {
 
   protected void parseSection(Element element, Section parentSection) {
     var currentSection = parentSection;
-    if (element.getName() == "section") {
+    if (element.getName().equals("section")) {
       var title = element.getChild("title");
       if (title == null) {
         throw new RuntimeException("Section without title");

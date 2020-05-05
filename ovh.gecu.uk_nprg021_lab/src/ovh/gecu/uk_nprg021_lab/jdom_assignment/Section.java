@@ -1,8 +1,7 @@
-package ovh.gecu.uk_nprg021_lab.jdom_assignement;
+package ovh.gecu.uk_nprg021_lab.jdom_assignment;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 public class Section {
   protected String title;
