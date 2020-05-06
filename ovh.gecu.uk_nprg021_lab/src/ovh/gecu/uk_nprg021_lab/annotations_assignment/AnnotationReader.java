@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AnnotationReader {
   public static void main(String[] args) {
@@ -22,15 +23,19 @@ public class AnnotationReader {
     var className = clazz.getName();
 
     var methods = new ArrayList<Method>();
-    var isSuper = false;
+    Class<?> finalClazz = clazz;
+    var publicSuperMethods = Arrays.stream(clazz.getMethods()).filter(m -> m.getDeclaringClass() != Object.class && m.getDeclaringClass() != finalClazz);
+    var isBaseClass = true;
     while (clazz != Object.class) {
-      var declaredMethods = Arrays.stream(clazz.getDeclaredMethods()).filter(m -> !Modifier.isAbstract(m.getModifiers()));
-      if (isSuper) {
-        //declaredMethods = declaredMethods.filter(m -> !Modifier.isPrivate(m.getModifiers()));
+      var classMethods = Arrays.stream(clazz.getDeclaredMethods());
+      if (isBaseClass) {
+        classMethods = Stream.concat(classMethods, publicSuperMethods);
+      } else {
+        classMethods = classMethods.filter(m -> !Modifier.isPublic(m.getModifiers()));
       }
-      declaredMethods.collect(Collectors.toCollection(() -> methods));
+      classMethods.filter(m -> !Modifier.isAbstract(m.getModifiers())).collect(Collectors.toCollection(() -> methods));
       clazz = clazz.getSuperclass();
-      isSuper = true;
+      isBaseClass = false;
     }
 
     var methods_annotations = new HashMap<Method, Collection<Annotation>>();
