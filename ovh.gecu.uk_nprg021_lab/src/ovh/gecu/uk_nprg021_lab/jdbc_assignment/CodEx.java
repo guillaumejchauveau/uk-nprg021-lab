@@ -37,11 +37,9 @@ public class CodEx {
 
     var agents = new ArrayList<Agent>();
     var totalCustomer = 0;
-    Agent previousAgent;
+    Agent previousAgent = null;
     while (rs.next()) {
-      if (!agents.isEmpty() && agents.get(agents.size() - 1).getName().equals(rs.getString("AGENT_NAME"))) {
-        previousAgent = agents.get(agents.size() - 1);
-      } else {
+      if (previousAgent == null || !previousAgent.getName().equals(rs.getString("AGENT_NAME"))) {
         previousAgent = Agent.fromResultSet(rs);
         agents.add(previousAgent);
       }
