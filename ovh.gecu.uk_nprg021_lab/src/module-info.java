@@ -11,4 +11,5 @@ module ovh.gecu.uk_nprg021_lab {
   uses TextProcessor;
   provides MyPluginInterface with MyPlugin;
   uses MyPluginInterface;
+  exports cz.cuni.mff.java.exam;
 }
