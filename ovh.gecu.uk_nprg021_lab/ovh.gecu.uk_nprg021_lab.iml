@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
-  <component name="CheckStyle-IDEA-Module">
-    <option name="configuration">
-      <map />
-    </option>
-  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -12,7 +7,25 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="org.jdom:jdom2:2.0.5" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="com.h2database:h2:1.4.200" level="project" />
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library name="com.h2database:h2:1.4.200" type="repository">
+        <properties include-transitive-deps="false" maven-id="com.h2database:h2:1.4.200" />
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.200/h2-1.4.200.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="org.jdom:jdom2:2.0.5" type="repository">
+        <properties include-transitive-deps="false" maven-id="org.jdom:jdom2:2.0.5" />
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/jdom/jdom2/2.0.5/jdom2-2.0.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

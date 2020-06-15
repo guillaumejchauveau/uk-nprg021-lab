@@ -44,7 +44,7 @@ public class LinkReader {
       }
       currentSection = new Section(this.getText(title));
       this.sections.add(currentSection);
-    } else if (element.getName() == "link") {
+    } else if (element.getName().equals("link")) {
       if (currentSection == null) {
         throw new RuntimeException("Link outside section");
       }

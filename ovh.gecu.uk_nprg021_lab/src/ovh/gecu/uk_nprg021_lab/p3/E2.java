@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.ServiceLoader;
 
 public class E2 {
-  public static void test(String[] args) throws Exception {
+  public static void main(String[] args) throws Exception {
     var urls = new ArrayList<URL>();
     for (var path : args) {
       urls.add(new URL(path));
     }
-    var providers = ServiceLoader.load(MyPluginInterface.class, new URLClassLoader(urls.toArray(new URL[urls.size()])));
+    var providers = ServiceLoader.load(MyPluginInterface.class, new URLClassLoader(urls.toArray(new URL[0])));
     for (var provider : providers) {
       System.out.println(provider.getClass().getName());
     }

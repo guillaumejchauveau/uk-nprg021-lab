@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class E2 {
-  public static void test(String[] args) throws Exception {
+  public static void main(String[] args) throws Exception {
     if (args.length != 1) {
       throw new RuntimeException("One argument expected");
     }

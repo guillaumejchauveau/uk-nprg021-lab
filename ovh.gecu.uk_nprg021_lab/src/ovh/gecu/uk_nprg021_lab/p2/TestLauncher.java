@@ -3,6 +3,7 @@ package ovh.gecu.uk_nprg021_lab.p2;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -11,9 +12,14 @@ import java.util.List;
 public class TestLauncher {
   protected List<Class<?>> testClasses;
 
-  public TestLauncher(String path) throws IOException, ClassNotFoundException {
+  public static void main(String[] args) throws Exception {
+    var reader = new BufferedReader(new InputStreamReader(System.in));
+    var testLauncher = new TestLauncher(reader);
+    testLauncher.runTests();
+  }
+
+  public TestLauncher(BufferedReader reader) throws IOException, ClassNotFoundException {
     this.testClasses = new ArrayList<>();
-    var reader = new BufferedReader(new FileReader(path));
     String line;
     while ((line = reader.readLine()) != null) {
       var testClass = Class.forName(line);

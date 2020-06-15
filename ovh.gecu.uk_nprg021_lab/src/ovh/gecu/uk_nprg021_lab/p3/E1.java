@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.ServiceLoader;
 
 public class E1 {
-  public static void test(String[] args) throws Exception {
+  public static void main(String[] args) throws Exception {
     var processors = new ArrayList<TextProcessor>();
     for (var plugin : ServiceLoader.load(TextProcessor.class)) {
       processors.add(plugin);

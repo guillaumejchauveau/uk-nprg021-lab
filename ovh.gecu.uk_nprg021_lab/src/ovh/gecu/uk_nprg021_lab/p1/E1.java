@@ -17,8 +17,8 @@ public class E1 {
     return plugins;
   }
 
-  public static void test() throws Exception {
-    for (var plugin : E1.loadPlugins(MyPluginInterface.class, "ovh.gecu.nprg021_lab.P1.MyPlugin")) {
+  public static void main(String[] args) throws Exception {
+    for (var plugin : E1.loadPlugins(MyPluginInterface.class, "ovh.gecu.uk_nprg021_lab.p1.MyPlugin")) {
       System.out.println(plugin.myMethod());
     }
   }
